@@ -9,7 +9,7 @@
 # Integrantes:
 * A1: João Asafe Batista de Souza - 22252494
 * A2: Brayner Santana Brito - 22352611
-* A3: João Vitor Oliveira da Simões -
+* A3: João Vitor Oliveira da Simões - 22351498
 * A4: Amanda da Silva - 22400227
 * A5: Manoele Braga Colares da Costa- 22351502
 * A6: Lais Samily Xavier da Silva- 22351499
