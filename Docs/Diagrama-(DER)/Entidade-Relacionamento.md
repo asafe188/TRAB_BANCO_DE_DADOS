@@ -12,6 +12,6 @@
 * Cliente **COMPRA** produto;
 * Cliente **FAZ** pagamento;
 * Produto **CONTÉM** tipo de produto;
-* User adm **CADASTRA** produto;
-* User adm **ACESSA** Histórico de vendas;
+* User administrador **CADASTRA** produto;
+* User administrador **ACESSA** Histórico de vendas;
 * Histórico de Vendas **CONTÉM** produto.
