@@ -18,10 +18,8 @@
 # Docente:
 * Edson Araujo
 # Nome do sistema:  
-* **BootNet**
+* **ShoesMix**
 ## Objetivo do trabalho:
-O presente trabalho tem como objetivo o desenvolvimento de um sistema de e-commerce voltado para a comercialização de calçados de diversos modelos, atendendo tanto ao público masculino quanto feminino. A proposta visa oferecer uma plataforma moderna, funcional e intuitiva que permita aos usuários navegar, visualizar, selecionar e adquirir produtos de maneira prática e segura.
-
-Além de facilitar o processo de compra, o sistema será projetado para atender às necessidades da loja em termos de organização de estoque, gerenciamento de pedidos e controle de vendas. Espera-se, com isso, promover a digitalização do negócio, expandir o alcance da marca e proporcionar uma melhor experiência de compra ao cliente final. O desenvolvimento deste sistema envolve a aplicação de conceitos de programação, design responsivo, banco de dados e usabilidade, sendo um exercício prático de integração entre tecnologia e comércio.
+O principal objetivo é desenvolver uma plataforma web para a venda de calçados masculinos e femininos, visando digitalizar o atendimento de uma empresa que atualmente realiza vendas apenas de forma presencial. O sistema tem como propósito facilitar o acesso dos clientes aos produtos da loja, permitindo a visualização, seleção e compra de calçados de maneira prática e segura pela internet. Além disso, a plataforma busca ampliar o alcance da empresa, possibilitando a expansão para novos mercados e aumentando sua visibilidade e competitividade no setor de calçados.
 
 ## Processos feitos: 
