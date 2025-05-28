@@ -1,17 +1,15 @@
 # ENTIDADES:
 
-* Cliente;
-* User ADM;
-* Produto;
 * Tipo;
-* Histórico de Vendas.
+* Usuário;
+* Pedido;
+* Produto.
 
 # RELACIONAMENTOS
 
-* Cliente **ESCOLHE** tipo de produto;
-* Cliente **COMPRA** produto;
-* Cliente **FAZ** pagamento;
-* Produto **CONTÉM** tipo de produto;
-* User administrador **CADASTRA** produto;
-* User administrador **ACESSA** Histórico de vendas;
-* Histórico de Vendas **CONTÉM** produto.
+* Usuário **possui** Tipo (1:N);
+* Usuario **faz** Pedido (N:N);
+* Usuário **cadastra** Produto (1:1);
+* Produto **contém** Pedido (N:N);
+
+# REPRESENTAÇÃO DO MODELO DER.
