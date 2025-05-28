@@ -19,7 +19,7 @@
 * Edson Araujo
 # Nome do sistema:  
 * **ShoesMix**
+
 ## Objetivo do trabalho:
 O principal objetivo é desenvolver uma plataforma web para a venda de calçados masculinos e femininos, visando digitalizar o atendimento de uma empresa que atualmente realiza vendas apenas de forma presencial. O sistema tem como propósito facilitar o acesso dos clientes aos produtos da loja, permitindo a visualização, seleção e compra de calçados de maneira prática e segura pela internet. Além disso, a plataforma busca ampliar o alcance da empresa, possibilitando a expansão para novos mercados e aumentando sua visibilidade e competitividade no setor de calçados.
 
-## Processos feitos: 
