@@ -1,7 +1,7 @@
 **NOME: Juliana Martins**  
 **IDADE:  24 anos**
 ## QUEM
-Juliana Martins, 24 anos, trabalha há dois anos como atendente e vendedora na loja. É simpática, comunicativa e gosta de tecnologia. Uns de seus medos e não conseguir alcançar seus objetivos.
+Juliana Martins trabalha há dois anos como atendente e vendedora na loja. É simpática, comunicativa e gosta de tecnologia. Uns de seus medos e não conseguir alcançar seus objetivos.
 
 ## CONTEXTO
 **Quais tarefas da sua rotina ele realiza utilizando aplicações?**  
