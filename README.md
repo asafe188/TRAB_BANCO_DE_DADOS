@@ -13,7 +13,6 @@
 * A4: Amanda da Silva - 22400227
 * A5: Manoele Braga Colares da Costa- 22351502
 * A6: Lais Samily Xavier da Silva- 22351499
-* A7: Ebler
 
 # Docente:
 * Edson Araujo
