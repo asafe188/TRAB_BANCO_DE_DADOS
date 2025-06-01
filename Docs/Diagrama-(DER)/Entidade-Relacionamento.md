@@ -15,5 +15,5 @@
 # REPRESENTAÇÃO DO MODELO DER.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/cbd27cf5-0954-415e-aaec-8c36d11a6bf3" width="1100px"/>
+<img src="https://github.com/user-attachments/assets/6e57df5e-02a8-439e-a7a9-9994743ea15b" width="1100px"/>
 </div>
