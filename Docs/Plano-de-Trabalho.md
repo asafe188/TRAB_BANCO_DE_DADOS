@@ -122,11 +122,29 @@ O monitoramento e controle do escopo do projeto serão realizados a partir das s
 
 # 4 Requisitos
 ## 4.1 Requisitos Funcionais
-
+| ID     | RF  | Detalhamento | Prioridade|
+| -------| --- | ------------ | --------- |
+| RF-001  | Cadastro, login e recuperação de senha para usuários.  |  Permitir criação de contas, autenticação de usuários e recuperação de senhas via e-mail. Requisito essencial para o uso das funcionalidades do sistema.    | Alta  |
+| RF-002  | Busca, filtragem e exibição de produtos.               | Interface que permite aos usuários localizar produtos por nome, categoria e tamanho, com resultados exibidos de forma clara e responsiva.                  | Alta  |
+| RF-003  | Carrinho de compras e controle de estoque.             | Adicionar/remover produtos do carrinho. O estoque de cada produto será automaticamente atualizado após a finalização da compra.                          | Alta  |
+| RF-004  | Processamento de pagamento integrado a gateways.       | Integração com gateways de pagamento (ex: PagSeguro, Stripe) para realizar compras de forma segura, com retorno de sucesso ou falha da transação.             | Alta  |
+| RF-005  | Acompanhamento de pedidos pelo usuário.                | Os usuários podem visualizar o status de seus pedidos (ex: em processamento, enviado, entregue) diretamente pela conta.                                 | Média |
+| RF-006  | Área administrativa para gerenciar produtos, estoques, vendas e promoções. | Módulo interno com acesso restrito para administradores que permite cadastrar produtos, monitorar vendas, configurar promoções e ajustar o estoque.       | Alta |
 
 
 ## 4.2 Requisitos Não Funcionais
-
+| ID     | RNF  | Detalhamento | Prioridade|
+| -------| --- | ------------ | --------- |
+| RNF-001  |Interface responsiva (web).  |A aplicação deve se adaptar a diferentes resoluções e tamanhos de tela, funcionando corretamente em celulares, tablets e computadores.  | Alta  |
+| RNF-002  | Segurança dos dados dos usuários.| Senhas armazenadas com criptografia segura (ex: bcrypt) e comunicação entre cliente e servidor via HTTPS. | Alta|
+| RNF-003  | Disponibilidade mínima de 99,5%.| O sistema deve estar acessível e operacional pelo menos 99,5% do tempo, com planos de contingência para quedas. |Média  |
+| RNF-004  | Suporte a múltiplos navegadores modernos. | A plataforma deve funcionar corretamente nos principais navegadores atuais, como Chrome, Firefox, Safari e Edge. | Média  |
 
 
 ## 4.3 Regras de Negócios
+| ID     | RDN  | Detalhamento | Prioridade|
+| -------| --- | ------------ | --------- |
+| RDN-001  | Só podem comprar usuários cadastrados e logados | O botão de finalização de compra só é habilitado para usuários autenticados. Impede transações anônimas. | Alta  |
+| RDN-002  | Cada produto deve ter estoque atualizado automaticamente após a venda.| Após a confirmação da compra, o sistema reduz automaticamente a quantidade disponível do produto correspondente. | Alta|
+| RDN-003  | Promoções e descontos são aplicados conforme regras do administrador. | O administrador define promoções válidas, que são aplicadas automaticamente no carrinho, conforme critérios pré definidos (ex: percentual, combos). |Média  |
+| RDN-004  | Devoluções só são permitidas dentro do prazo de 7 dias. | O sistema permite solicitação de devolução somente se o pedido estiver dentro do prazo de 7 dias corridos após o recebimento do produto. | Média  |
