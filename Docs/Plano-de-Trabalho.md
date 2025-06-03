@@ -80,7 +80,9 @@ O projeto também priorizará a segurança dos dados dos usuários e a alta disp
 | Plataforma de Modelagem UML                        |Draw.io                      |
 | Plataforma de Modelagem DER | BR Modelo Web    |
 | Plataforma para criar bancos de dados relacionais.        | MySQL |
-| Plataforma para criar bancos de dados relacionais.        | XAMPP  |
+| Executar o back-end e banco de dados localmente        | XAMPP  |
+| Implementar a lógica do sistema e conexão com o banco. | Python (Flask/Django) |
+| Escrever e organizar o código-fonte.                  |   VS Code                         |  
 
 # 3 METODOLOGIA DE PROJETO
 ## 3.1 Estrutura do Projeto
@@ -95,7 +97,10 @@ O projeto também priorizará a segurança dos dados dos usuários e a alta disp
 | João Vitor e Lais  | Analista de Requisitos    | Elaboração do Plano de Trabalho e Diagrama de Caso de Uso.       |
 | João Asafe  | Arquiteto de Dados | Criação do Modelo Conceitual e definição de entidades e relacionamentos.       |
 | Manoele e Brayner       | Designer de Banco de Dados   | Construção do Modelo Lógico e normalização das tabelas.       |
-| Ebler    | Administrador de Banco de Dados   | Desenvolvimento do Modelo Físico e definição dos scripts SQL.       |
+| João Vitor    | Administrador de Banco de Dados   | Desenvolvimento do Modelo Físico e definição dos scripts SQL.       |
+| João Vitor, Lais e João Asafe | Desenvolvedor Back-End            | Criar APIs, integrar com o banco de dados, aplicar regras de negócio. |
+| Manoele e Brayner             |  Desenvolvedor Front-End          | Conectar a interface do usuário com as APIs.  |
+|  Lais                         |   Tester                          |     Testar se o sistema realmente grava, lê, atualiza e exclui dados do banco corretamente.|
 
 ## 3.3 Fases, Atividades e Cronograma
 - **Fase I: Especificação e Planejamento – Maio/Junho:**
