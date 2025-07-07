@@ -96,7 +96,7 @@ O projeto também priorizará a segurança dos dados dos usuários e a alta disp
 | João Vitor  |  Scrum Master |Organização geral do trabalho, revisão técnica e formatação.       |
 | João Vitor e Lais  | Analista de Requisitos    | Elaboração do Plano de Trabalho e Diagrama de Caso de Uso.       |
 | João Asafe  | Arquiteto de Dados | Criação do Modelo Conceitual e definição de entidades e relacionamentos.       |
-| Manoele e Brayner       | Designer de Banco de Dados   | Construção do Modelo Lógico e normalização das tabelas.       |
+| Manoele, Brayner e Amanda       | Designer de Banco de Dados   | Construção do Modelo Lógico e normalização das tabelas.       |
 | João Vitor    | Administrador de Banco de Dados   | Desenvolvimento do Modelo Físico e definição dos scripts SQL.       |
 | João Vitor, Lais e João Asafe | Desenvolvedor Back-End            | Criar APIs, integrar com o banco de dados, aplicar regras de negócio. |
 | Manoele e Brayner             |  Desenvolvedor Front-End          | Conectar a interface do usuário com as APIs.  |
