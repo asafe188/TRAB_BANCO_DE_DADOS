@@ -12,7 +12,7 @@
 # HISTÓRICO DE VERSÕES
 | Versão | Descrição                              | Autor                          | Data       |
 | ------ | -------------------------------------- | ------------------------------ | ---------- |
-| 1.0    | Especificação e Planejamento        | Amanda da Silva, Brayner Santana, Ebler, João Asafe Batista, João Vitor Oliveira,  Lais Samily  e Manoele Braga | 12/05/2025 |
+| 1.0    | Implementação        | Amanda da Silva, Brayner Santana, Ebler, João Asafe Batista, João Vitor Oliveira,  Lais Samily  e Manoele Braga | 12/05/2025 |
 | 1.2    |  |  |  |
 
 
