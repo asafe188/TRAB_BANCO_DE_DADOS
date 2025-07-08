@@ -3,7 +3,7 @@
 | Nome do Projeto:       | ShoesMix |
 | ---------------------- | --------------------------------- |
 | Versão:                | 1.0                              |
-| Status:                | Especificação e Planejamento      |
+| Status:                | Implementação      |
 | Executor Principal:    | Amanda da Silva, Brayner Santana, Ebler, João Asafe Batista, João Vitor Oliveira,  Lais Samily  e Manoele Braga     |
 | Coordenador Principal: | Edson Silva                  |
 
@@ -12,7 +12,7 @@
 # HISTÓRICO DE VERSÕES
 | Versão | Descrição                              | Autor                          | Data       |
 | ------ | -------------------------------------- | ------------------------------ | ---------- |
-| 1.0    | Implementação        | Amanda da Silva, Brayner Santana, Ebler, João Asafe Batista, João Vitor Oliveira,  Lais Samily  e Manoele Braga | 12/05/2025 |
+| 1.0    | Especificação e Planejamento        | Amanda da Silva, Brayner Santana, Ebler, João Asafe Batista, João Vitor Oliveira,  Lais Samily  e Manoele Braga | 12/05/2025 |
 | 1.2    |  |  |  |
 
 
