@@ -60,7 +60,6 @@ O projeto também priorizará a segurança dos dados dos usuários e a alta disp
 - Desenvolver funcionalidades de cadastro de usuários, login e recuperação de senha, com autenticação segura.
 - Implementar a busca e filtragem de produtos, com exibição organizada e intuitiva dos sapatos disponíveis para compra.
 - Criar um carrinho de compras funcional, com controle automático de estoque após a finalização da compra.
-- Integrar o sistema com gateways de pagamento, permitindo a realização de transações financeiras de forma segura.
 - Disponibilizar uma área de acompanhamento de pedidos para que os usuários visualizem o status de suas compras.
 - Implementar módulo administrativo que permita o gerenciamento de produtos, controle de estoques, visualização de vendas e configuração de promoções e descontos.
 - Assegurar a segurança dos dados dos usuários, utilizando práticas como criptografia de senhas e navegação via HTTPS.
@@ -83,10 +82,11 @@ O projeto também priorizará a segurança dos dados dos usuários e a alta disp
 | Repositório Online                          | GitHub                      |
 | Plataforma de Modelagem UML                        |Draw.io                      |
 | Plataforma de Modelagem DER | BR Modelo Web    |
+| Plataforma de Criação dos Protótipos visual do sistema | Figma                  |
 | Plataforma para criar bancos de dados relacionais.        | MySQL |
 | Executar o back-end e banco de dados localmente        | XAMPP  |
 | Implementar a lógica do sistema e conexão com o banco. | Python (Flask/Django) |
-| Escrever e organizar o código-fonte.                  |   VS Code                         |  
+| Escrever e organizar o código-fonte.                  |   VS Code              |  
 
 # 3 METODOLOGIA DE PROJETO
 ## 3.1 Estrutura do Projeto
