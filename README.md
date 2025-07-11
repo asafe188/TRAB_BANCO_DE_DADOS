@@ -1,5 +1,9 @@
-# TRAB_BANCO_DE_DADOS
+# AlimCheck-Banco-de-dados
 
+![Status](https://img.shields.io/badge/status-em%20andamento-green)
+![Versão](https://img.shields.io/badge/versão-1.0-blue)
+![Tecnologia](https://img.shields.io/badge/backend-Node.js-lightgrey)
+![Licença](https://img.shields.io/badge/licença-MIT-brightgreen)
 # Curso:
 * Sistemas de Informação & Engenharia de Software
 
