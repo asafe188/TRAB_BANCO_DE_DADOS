@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body class="tela-login login-only">
+  <div class="login-container">
+    <!-- Lado esquerdo -->
+    <div class="lado-esquerdo">
+      <img src="{{ url_for('static', filename='logo-grande.png') }}" alt="ShoesMix" class="logo-grande">
+    </div>
 
+    <!-- Lado direito -->
+    <div class="lado-direito">
+      <h1>Login</h1>
+      <form method="POST">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <div class="campo-senha">
+            <input type="password" id="senha" name="senha" required>
+            <img src="{{ url_for('static', filename='olho-login.png') }}" alt="Mostrar senha" class="icone-olho-login" id="iconeOlhoLogin">
+          </div>
+        </div>
+
+        <div class="esqueci-senha">
+          <a href="#" class="link-senha">Esqueci senha</a>
+        </div>
+
+        <div class="group-button">
+          <button type="submit">ENTRAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const senhaInput = document.getElementById('senha');
+    const iconeOlho = document.getElementById('iconeOlhoLogin');
+
+    iconeOlho.addEventListener('click', () => {
+      const tipo = senhaInput.type === 'password' ? 'text' : 'password';
+      senhaInput.type = tipo;
+      iconeOlho.src = tipo === 'text'
+        ? "{{ url_for('static', filename='olho-login-fechado.png') }}"
+        : "{{ url_for('static', filename='olho-login.png') }}";
+    });
+  </script>
+</body>
+</html>
