@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa">
+      <input type="text" placeholder="O que deseja procurar?">
+    </div>
+    <div class="icones-direita">
+      <div class="dropdown">
+        <div class="dropdown-toggle" onclick="toggleMenu(event)">
+          <img src="{{ url_for('static', filename='user-icon.png') }}" alt="Usuário">
+          <span class="minha-conta">Minha conta</span>
+        </div>
+        <div class="dropdown-content" id="menuConta">
+          <a href="/login" class="botao-conta">ENTRAR</a>
+          <a href="/cadastro" class="botao-conta">CADASTRAR</a>
+        </div>
+      </div>
+      <a href="/carrinho">
+        <img src="{{ url_for('static', filename='cart-icon.png') }}" alt="Carrinho">
+      </a>
+    </div>
+  </header>
 
+  <!-- Barra de categorias abaixo do cabeçalho -->
+  <nav class="barra-categorias">
+    <ul>
+      <li><a href="#">NOVIDADES</a></li>
+      <li><a href="#">FEMININO</a></li>
+      <li><a href="#">MASCULINO</a></li>
+      <li><a href="#">PROMOÇÕES</a></li>
+      <li><a href="#">CATEGORIA</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    function toggleMenu(event) {
+      event.stopPropagation();
+      const menu = document.getElementById("menuConta");
+      menu.classList.toggle("ativo");
+    }
+    window.addEventListener("click", function (e) {
+      const menu = document.getElementById("menuConta");
+      const toggle = document.querySelector(".dropdown-toggle");
+      if (!toggle.contains(e.target)) {
+        menu.classList.remove("ativo");
+      }
+    });
+  </script>
+</body>
+</html>
