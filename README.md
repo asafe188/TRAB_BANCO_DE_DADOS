@@ -34,7 +34,7 @@ O **ShoesMix** é um sistema desenvolvida para a disciplina de **Sistemas de Ban
 * Carrinho de compras funcional.
 * Área de acompanhamento de pedidos.
 * Módulo administrativo que permita o gerenciamento de produtos.
-* istema de devoluções de produtos dentro do prazo de 7 dias após o recebimento.
+* Sistema de devoluções de produtos dentro do prazo de 7 dias após o recebimento.
 
 ## 📄 Licença
 Este Projeto está sob licença **MIT**. Veja o arquivo para mais detalhes.
