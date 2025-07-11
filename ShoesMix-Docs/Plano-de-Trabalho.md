@@ -132,9 +132,8 @@ O monitoramento e controle do escopo do projeto serão realizados a partir das s
 | RF-001  | Cadastro, login e recuperação de senha para usuários.  |  Permitir criação de contas, autenticação de usuários e recuperação de senhas via e-mail. Requisito essencial para o uso das funcionalidades do sistema.    | Alta  |
 | RF-002  | Busca, filtragem e exibição de produtos.               | Interface que permite aos usuários localizar produtos por nome, categoria e tamanho, com resultados exibidos de forma clara e responsiva.                  | Alta  |
 | RF-003  | Carrinho de compras e controle de estoque.             | Adicionar/remover produtos do carrinho. O estoque de cada produto será automaticamente atualizado após a finalização da compra.                          | Alta  |
-| RF-004  | Processamento de pagamento integrado a gateways.       | Integração com gateways de pagamento (ex: PagSeguro, Stripe) para realizar compras de forma segura, com retorno de sucesso ou falha da transação.             | Alta  |
-| RF-005  | Acompanhamento de pedidos pelo usuário.                | Os usuários podem visualizar o status de seus pedidos (ex: em processamento, enviado, entregue) diretamente pela conta.                                 | Média |
-| RF-006  | Área administrativa para gerenciar produtos, estoques, vendas e promoções. | Módulo interno com acesso restrito para administradores que permite cadastrar produtos, monitorar vendas, configurar promoções e ajustar o estoque.       | Alta |
+| RF-004  | Acompanhamento de pedidos pelo usuário.                | Os usuários podem visualizar o status de seus pedidos (ex: em processamento, enviado, entregue) diretamente pela conta.                                 | Média |
+| RF-005  | Área administrativa para gerenciar produtos, estoques, vendas e promoções. | Módulo interno com acesso restrito para administradores que permite cadastrar produtos, monitorar vendas, configurar promoções e ajustar o estoque.       | Alta |
 
 
 ## 4.2 Requisitos Não Funcionais
