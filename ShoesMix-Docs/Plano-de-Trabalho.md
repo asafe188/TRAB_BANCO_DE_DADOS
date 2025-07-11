@@ -2,7 +2,7 @@
 
 | Nome do Projeto:       | ShoesMix |
 | ---------------------- | --------------------------------- |
-| Versão:                | 1.0                              |
+| Versão:                | 2.0                              |
 | Status:                | Implementação      |
 | Executor Principal:    | Amanda da Silva, Brayner Santana, João Asafe Batista, João Vitor Oliveira,  Lais Samily  e Manoele Braga     |
 | Coordenador Principal: | Edson Silva                  |
@@ -12,8 +12,12 @@
 # HISTÓRICO DE VERSÕES
 | Versão | Descrição                              | Autor                          | Data       |
 | ------ | -------------------------------------- | ------------------------------ | ---------- |
-| 1.0    | Especificação e Planejamento        | Amanda da Silva, Brayner Santana, Ebler, João Asafe Batista, João Vitor Oliveira,  Lais Samily  e Manoele Braga | 12/05/2025 |
-| 1.2    |  |  |  |
+| 1.0    | Especificação e Planejamento        | Amanda da Silva, Brayner Santana, João Asafe Batista, João Vitor Oliveira,  Lais Samily  e Manoele Braga | 12/05/2025 |
+| 1.2    | Correções dos modelos | Amanda da Silva e João Asafe Batista  | 06/06/2025  |
+| 1.4    | Criação dos Protótipos visual do sistema    | Manoele Braga     | 09/06/2025     |
+| 1.6       | Criação do Banco de dados     | João Vitor Oliveira     |      |
+| 1.8       | Implementação do sistema     | João Vitor Oliveira e João Asafe Batista     |       |
+| 2.0        | Testes do Sistema    | Lais Samily e Brayner Santana      |       |
 
 
 ---
