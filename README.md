@@ -1,4 +1,4 @@
-# AlimCheck-Banco-de-dados
+# ShoesMix-Banco-de-dados
 
 ![Status](https://img.shields.io/badge/status-em%20andamento-green)
 ![Versão](https://img.shields.io/badge/versão-1.0-blue)
