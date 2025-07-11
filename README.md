@@ -15,7 +15,7 @@ O **ShoesMix** é um sistema desenvolvida para a disciplina de **Sistemas de Ban
 ## 📝 Matéria
 **Sistemas de Banco de Dados I**
    
-# 🚻 Integrantes
+## 🚻 Integrantes
 | Nome | Matrícula |
 |------|-----------|
 |Amanda da Silva      | 22400227          |
@@ -25,8 +25,22 @@ O **ShoesMix** é um sistema desenvolvida para a disciplina de **Sistemas de Ban
 |Lais Samily Xavier da Silva   |22351499  |
 |Manoele Braga Colares da Costa |22351502 |
 
-# Docente:
-* Edson Araujo
+## 🧑🏻‍🏫 Docente
+**Edson Silva**
 
-## Objetivo do trabalho:
-O principal objetivo é desenvolver uma plataforma web para a venda de calçados masculinos e femininos, visando digitalizar o atendimento de uma empresa que atualmente realiza vendas apenas de forma presencial. O sistema tem como propósito facilitar o acesso dos clientes aos produtos da loja, permitindo a visualização, seleção e compra de calçados de maneira prática e segura pela internet. Além disso, a plataforma busca ampliar o alcance da empresa, possibilitando a expansão para novos mercados e aumentando sua visibilidade e competitividade no setor de calçados.
+## 🎯 Escopo especificos
+* Cadastro de usuários, login e recuperação de senha.
+* Busca e filtragem de produtos, com exibição organizada.
+* Carrinho de compras funcional.
+* Área de acompanhamento de pedidos.
+* Módulo administrativo que permita o gerenciamento de produtos.
+* istema de devoluções de produtos dentro do prazo de 7 dias após o recebimento.
+
+## 📄 Licença
+Este Projeto está sob licença **MIT**. Veja o arquivo para mais detalhes.
+
+## 💬 Contato
+📧 Para dúvidas ou sugestões, entre em contato com qualquer integrante do grupo.
+* joaovitor2244jv@gmail.com
+
+
