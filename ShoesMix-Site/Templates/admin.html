@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Administração - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+</head>
+<body class="tela-admin">
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa">
+      <input type="text" placeholder="O que deseja procurar?">
+    </div>
+    <div class="icones-direita">
+      <a href="#" class="botao-admin">
+        <img src="{{ url_for('static', filename='icone-add.png') }}" alt="Adicionar Produto" class="icone-admin">
+        Adicionar Produto
+      </a>
+      <a href="#" class="botao-admin" id="config-button">
+        <img src="{{ url_for('static', filename='icone-config.png') }}" alt="Configuração" class="icone-admin">
+        Configuração
+      </a>
+    </div>
+  </header>
 
+  <!-- Menu de opções de configuração -->
+  <div id="menu-config" class="menu-flutuante">
+    <a href="#">Verificar Pedidos</a>
+    <a href="#">Estoque</a>
+    <a href="{{ url_for('logout') }}">Sair</a>
+  </div>
+
+  <nav class="barra-categorias">
+    <ul>
+      <li><a href="#">NOVIDADES</a></li>
+      <li><a href="#">FEMININO</a></li>
+      <li><a href="#">MASCULINO</a></li>
+      <li><a href="#">PROMOÇÕES</a></li>
+      <li><a href="#">CATEGORIA</a></li>
+    </ul>
+  </nav>
+
+  <!-- Conteúdo -->
+  <main class="conteudo-admin">
+    <p style="text-align: center; padding: 50px;">Selecione uma opção acima.</p>
+  </main>
+
+  <script>
+    // Ao clicar no botão de configurações, alternar a exibição do painel
+    document.getElementById('config-button').addEventListener('click', function() {
+      const menuConfig = document.getElementById("menu-config");
+      menuConfig.classList.toggle('ativo'); // Alterna a visibilidade do painel
+    });
+
+    // Fechar o painel se clicar fora dele
+    window.addEventListener('click', function(e) {
+      const menuConfig = document.getElementById("menu-config");
+      const configButton = document.getElementById("config-button");
+      if (!menuConfig.contains(e.target) && !configButton.contains(e.target)) {
+        menuConfig.classList.remove('ativo');
+      }
+    });
+  </script>
+
+</body>
+</html>
