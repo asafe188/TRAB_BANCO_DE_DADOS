@@ -1,4 +1,3 @@
-físico exemplo:
 # Usuários
 ![image](https://github.com/user-attachments/assets/ed6439bf-2d33-40db-9ec0-3c42e2ce9f41)
 
