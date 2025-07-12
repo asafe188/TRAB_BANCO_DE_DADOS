@@ -1,6 +1,7 @@
 <script>
     // Ao clicar no botão de configurações, alternar a exibição do painel
-    document.getElementById('config-button').addEventListener('click', function() {
+    document.getElementById('config-button').addEventListener('click', function(event) {
+      event.stopPropagation();
       const menuConfig = document.getElementById("menu-config");
       menuConfig.classList.toggle('ativo'); // Alterna a visibilidade do painel
     });
@@ -14,4 +15,3 @@
       }
     });
   </script>
-
