@@ -19,10 +19,12 @@
       <div class="dropdown">
         <div class="dropdown-toggle" onclick="toggleMenu(event)">
           <img src="{{ url_for('static', filename='user-icon.png') }}" alt="Usuário">
-          <span class="minha-conta">Olá, {{ nome_usuario }}</span>  <!-- Saudação com nome do usuário -->
+          <span class="minha-conta">Olá, {{ nome_usuario }}</span>
         </div>
         <div class="dropdown-content" id="menuConta">
-          <a href="/logout" class="botao-conta">SAIR</a> <!-- Logout -->
+          <a href="#" class="botao-conta">Meu Perfil</a>
+          <a href="#" class="botao-conta">Meus Pedidos</a>
+          <a href="{{ url_for('logout') }}" class="botao-conta">Sair</a>
         </div>
       </div>
       <a href="/carrinho">
@@ -43,9 +45,7 @@
 
   <main class="conteudo-usuario">
     <p style="text-align: center;">Bem-vindo à sua conta, {{ nome_usuario }}!</p>
-    <!-- Aqui você pode adicionar mais conteúdo de usuário, como pedidos, configurações, etc. -->
   </main>
-
+  
 </body>
 </html>
-
