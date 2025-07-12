@@ -16,10 +16,12 @@
       <input type="text" placeholder="O que deseja procurar?">
     </div>
     <div class="icones-direita">
-      <a href="#" class="botao-admin">
+      <!-- Botão que redireciona para a tela de cadastro de produto -->
+      <a href="{{ url_for('cadastro_produto') }}" class="botao-admin">
         <img src="{{ url_for('static', filename='icone-add.png') }}" alt="Adicionar Produto" class="icone-admin">
         Adicionar Produto
       </a>
+      <!-- Botão de configuração -->
       <a href="#" class="botao-admin" id="config-button">
         <img src="{{ url_for('static', filename='icone-config.png') }}" alt="Configuração" class="icone-admin">
         Configuração
