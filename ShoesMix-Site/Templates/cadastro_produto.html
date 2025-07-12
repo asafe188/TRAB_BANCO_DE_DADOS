@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastrar Produto - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+</head>
+<body class="tela-admin">
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa">
+      <input type="text" placeholder="O que deseja procurar?">
+    </div>
+    <div class="icones-direita">
+      <a href="{{ url_for('cadastro_produto') }}" class="botao-admin">
+        <img src="{{ url_for('static', filename='icone-add.png') }}" alt="Adicionar Produto" class="icone-admin">
+        Adicionar Produto
+      </a>
+      <a href="#" class="botao-admin" id="config-button">
+        <img src="{{ url_for('static', filename='icone-config.png') }}" alt="Configuração" class="icone-admin">
+        Configuração
+      </a>
+    </div>
+  </header>
 
+  <!-- Menu flutuante -->
+  <div id="menu-config" class="menu-flutuante">
+    <a href="#">Verificar Pedidos</a>
+    <a href="#">Estoque</a>
+    <a href="{{ url_for('logout') }}">Sair</a>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="cadastro-produto-container">
+    <h2>Cadastrar Produto</h2>
+    {% if sucesso %}
+      <p class="mensagem-sucesso">{{ sucesso }}</p>
+    {% endif %}
+    <form method="POST">
+      <!-- Linha Nome e Descrição -->
+      <div class="linha-dupla">
+        <div class="campo">
+          <label>Nome do Produto</label>
+          <input type="text" name="nome_produto" required>
+        </div>
+        <div class="campo">
+          <label>Descrição</label>
+          <input type="text" name="descricao" required>
+        </div>
+      </div>
+
+      <!-- Linha Preço e Quantidade -->
+      <div class="linha-dupla">
+        <div class="campo">
+          <label>Preço</label>
+          <input type="number" step="0.01" name="preco" required>
+        </div>
+        <div class="campo">
+          <label>Quantidade</label>
+          <input type="number" name="quantidade" required>
+        </div>
+      </div>
+
+      <!-- Linha Categoria e Imagem URL -->
+      <div class="linha-dupla">
+        <div class="campo">
+          <label>Categoria</label>
+          <select name="categoria" required>
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+            <option value="promocao">Promoção</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label>Imagem</label>
+          <input type="text" name="imagem" placeholder="URL da imagem" required>
+        </div>
+      </div>
+
+      <!-- Campo grande com + -->
+      <div class="campo-imagem">
+        <div class="caixa-imagem">
+          <span>+</span>
+        </div>
+      </div>
+
+      <!-- Botão -->
+      <button type="submit">Cadastrar Produto</button>
+    </form>
+  </div>
+
+</body>
+</html>
