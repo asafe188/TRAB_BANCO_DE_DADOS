@@ -592,6 +592,7 @@ html, body {
 .menu-flutuante a:hover {
   background-color: #222;
 }
+
 .formulario-cadastro-produto {
   max-width: 600px;
   margin: 0 auto;
@@ -635,4 +636,83 @@ html, body {
 
 .formulario-cadastro-produto button:hover {
   background-color: #333;
+}
+.cadastro-produto-container {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.cadastro-produto-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.linha-dupla {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.linha-dupla .campo {
+  flex: 1;
+}
+
+.cadastro-produto-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.cadastro-produto-container input,
+.cadastro-produto-container select {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.campo-imagem {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.campo-imagem .caixa-imagem {
+  width: 100%;
+  height: 120px;
+  border: 2px dashed #999;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  color: #999;
+  margin-top: 8px;
+}
+
+.cadastro-produto-container button {
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cadastro-produto-container button:hover {
+  background-color: #222;
+}
+
+.mensagem-sucesso {
+  text-align: center;
+  color: green;
+  margin-bottom: 20px;
 }
