@@ -19,7 +19,7 @@
       <div class="dropdown">
         <div class="dropdown-toggle" onclick="toggleMenu(event)">
           <img src="{{ url_for('static', filename='user-icon.png') }}" alt="Usuário">
-          <span class="minha-conta">Olá, {{ nome_usuario }}</span>
+          <span class="minha-conta">Bem-vindo</span>
         </div>
         <div class="dropdown-content" id="menuConta">
           <a href="#" class="botao-conta">Meu Perfil</a>
@@ -44,7 +44,7 @@
   </nav>
 
   <main class="conteudo-usuario">
-    <p style="text-align: center;">Bem-vindo à sua conta, {{ nome_usuario }}!</p>
+    <!-- Removido o texto central de boas-vindas -->
   </main>
   
 </body>
