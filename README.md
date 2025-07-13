@@ -7,7 +7,7 @@
 
 
 ## 📚 Sobre o Projeto:
-O **ShoesMix** é um sistema desenvolvida para a disciplina de **Sistemas de Banco de Dados I**, para a venda de calçados masculinos e femininos, visando digitalizar o atendimento de uma empresa que atualmente realiza vendas apenas de forma presencial.
+O **ShoesMix** é um sistema desenvolvida para a disciplina de **Sistemas de Banco de Dados I**, é um sistema para a venda de calçados masculinos e femininos, visando digitalizar o atendimento de uma empresa que atualmente realiza vendas apenas de forma presencial.
 
 ## 🎓 Curso 
 **Engenharia de Software & Sistemas de Informação**
