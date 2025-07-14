@@ -32,3 +32,19 @@ CREATE TABLE carrinho (
   quantidade INT DEFAULT 1,
   tamanho VARCHAR(10)
 );
+CREATE TABLE pedidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_email VARCHAR(100),
+  cliente_nome VARCHAR(100),
+  produto_nome VARCHAR(100),
+  tamanho VARCHAR(10),
+  quantidade INT,
+  data_pedido DATE,
+  endereco_bairro VARCHAR(100),
+  endereco_rua VARCHAR(100),
+  endereco_numero VARCHAR(10),
+  endereco_cidade VARCHAR(100),
+  endereco_uf VARCHAR(5),
+  forma_pagamento VARCHAR(20),
+  status VARCHAR(20)
+);
