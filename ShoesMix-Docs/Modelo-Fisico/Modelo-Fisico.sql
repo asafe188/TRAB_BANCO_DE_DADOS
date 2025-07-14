@@ -22,6 +22,13 @@ CREATE TABLE produtos (
     descricao TEXT,
     preco DECIMAL(10,2) NOT NULL,
     categoria VARCHAR(50),
-    quantidade_estoque INT DEFAULT 0,
-    imagem_url VARCHAR(255)
+    quantidade INT DEFAULT 0,
+    imagem VARCHAR(255)
+);
+CREATE TABLE carrinho (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_email VARCHAR(100) NOT NULL,
+  produto_id INT NOT NULL,
+  quantidade INT DEFAULT 1,
+  tamanho VARCHAR(10)
 );
