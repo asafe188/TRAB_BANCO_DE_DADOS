@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalhes do Pedido - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f5f5; margin:0;}
+    .cabecalho { display:flex; align-items:center; justify-content:space-between; background:white; padding:10px 30px; box-shadow:0 0 5px rgba(0,0,0,0.1);}
+    .titulo { text-align:center; margin:30px 0; font-size:26px; font-weight:bold; }
+    .detalhes { background:#fff; max-width:800px; margin:0 auto; padding:20px; border-radius:8px; box-shadow:0 0 5px rgba(0,0,0,0.1); display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+    .detalhes p { margin:6px 0; }
+    .col { }
+    .imagem { width:100px; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <input type="text" placeholder="O que deseja procurar?">
+    </div>
+    <div class="icones-direita">
+      <a href="{{ url_for('verificar_pedidos') }}">Voltar</a>
+    </div>
+  </header>
+
+  <h1 class="titulo">DETALHES</h1>
+
+  <div class="detalhes">
+    <div class="col">
+      <p><strong>PEDIDO:</strong> #{{ pedido[0] }}</p>
+      <p><strong>Cliente:</strong> {{ pedido[2] }}</p>
+      <p><strong>E-mail:</strong> {{ pedido[1] }}</p>
+      <p><strong>Quantidade:</strong> {{ pedido[5] }}</p>
+      <p><strong>Tamanho:</strong> {{ pedido[4] }}</p>
+      <p><strong>Data:</strong> {{ pedido[6].strftime("%d/%m/%Y") }}</p>
+      <p><strong>Endereço:</strong><br>
+        Bairro: {{ pedido[7] }}<br>
+        Rua: {{ pedido[8] }}<br>
+        Nº {{ pedido[9] }}<br>
+        {{ pedido[10] }} - {{ pedido[11] }}
+      </p>
+      <p><strong>Forma de Pagamento:</strong> {{ pedido[12] }}</p>
+      <p><strong>Status:</strong> {{ pedido[13] }}</p>
+    </div>
+    <div class="col">
+      <p><strong>Produto:</strong></p>
+      <p>{{ pedido[3] }}</p>
+    </div>
+  </div>
+</body>
+</html>
