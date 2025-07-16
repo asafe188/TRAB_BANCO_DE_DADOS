@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Estoque - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+  <style>
+    .container-estoque {
+      max-width: 1000px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f7f7f7;
+      font-weight: bold;
+    }
+    .botao-voltar {
+      position: absolute;
+      top: 200px;
+      left: 120px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+     
+    }
+    .botao-voltar img {
+      width: 45px;
+      height: 45px;
+    }
+    h2.titulo-estoque {
+      text-align: center;
+      margin: 20px 0 20px 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="tela-admin">
+  <!-- HEADER igual ao admin.html -->
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex; align-items:center; gap:4px;">
+        <input type="text" name="q" placeholder="O que deseja procurar?" style="flex:1;">
+        <button type="submit" style="border:none; background:none; cursor:pointer;">
+          <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa" style="height:16px;">
+        </button>
+      </form>
+    </div>
+    <div class="icones-direita">
+      <a href="{{ url_for('cadastro_produto') }}" class="botao-admin">
+        <img src="{{ url_for('static', filename='icone-add.png') }}" alt="Adicionar Produto" class="icone-admin">
+        Adicionar Produto
+      </a>
+      <a href="#" class="botao-admin" id="config-button">
+        <img src="{{ url_for('static', filename='icone-config.png') }}" alt="Configuração" class="icone-admin">
+        Configuração
+      </a>
+    </div>
+  </header>
+
+  <!-- MENU FLUTUANTE -->
+  <div id="menu-config" class="menu-flutuante">
+    <a href="#">Verificar Pedidos</a>
+    <a href="{{ url_for('estoque') }}">Estoque</a>
+    <a href="{{ url_for('logout') }}">Sair</a>
+  </div>
+
+  <nav class="barra-categorias">
+    <ul>
+      <li><a href="#">NOVIDADES</a></li>
+      <li><a href="#">FEMININO</a></li>
+      <li><a href="#">MASCULINO</a></li>
+      <li><a href="#">PROMOÇÕES</a></li>
+      <li><a href="#">CATEGORIA</a></li>
+    </ul>
+  </nav>
+
+  <!-- BOTÃO VOLTAR só o ícone -->
+  <a href="{{ url_for('admin') }}" class="botao-voltar">
+    <img src="{{ url_for('static', filename='icone-voltar.png') }}" alt="Voltar">
+  </a>
+
+  <!-- TÍTULO FORA DO CARD -->
+  <h2 class="titulo-estoque">Estoque</h2>
+
+  <!-- TABELA DENTRO DO CARD -->
+  <main class="container-estoque">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Quantidade</th>
+          <th>Tamanho</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for produto in produtos %}
+          <tr>
+            <td>{{ produto[0] }}</td>
+            <td>{{ produto[1] }}</td>
+            <td>{{ produto[7] }}</td>
+            <td>{{ produto[4] }}</td>
+            <td>{{ produto[5] }}</td>
+            <td>R$ {{ "%.2f"|format(produto[3]) }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+
+</body>
+</html>
