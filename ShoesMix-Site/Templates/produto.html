@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ produto[1] }} - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+  <style>
+    .container-produto {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: flex;
+      gap: 40px;
+      align-items: stretch;
+    }
+    .imagem-produto {
+      flex: 1;
+    }
+    .imagem-produto img {
+      width: 100%;
+      border-radius: 8px;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detalhes-produto {
+      flex: 1;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .detalhes-produto h2 {
+      margin-top: 0;
+    }
+    .tamanhos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+    .tamanhos button {
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      background: #f9f9f9;
+      font-size: 14px;
+    }
+    .tamanhos button.selected {
+      border-color: #000;
+      background: #eee;
+    }
+    .quantidade {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    .quantidade input {
+      width: 50px;
+      text-align: center;
+    }
+    .botoes {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .botoes button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+      max-width: 150px;
+    }
+    .btn-carrinho {
+      background: #000;
+      color: white;
+    }
+    .btn-comprar {
+      background: #555;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex; align-items:center; gap:4px;">
+        <input type="text" name="q" placeholder="O que deseja procurar?" style="flex:1;">
+        <button type="submit" style="border:none; background:none; cursor:pointer;">
+          <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa" style="height:16px;">
+        </button>
+      </form>
+    </div>    
+   <div class="icones-direita">
+      <div class="dropdown">
+        <div class="dropdown-toggle" onclick="toggleMenu(event)">
+          <img src="{{ url_for('static', filename='user-icon.png') }}" alt="Usuário">
+          <span class="minha-conta">Conta</span>
+        </div>
+        <div class="dropdown-content" id="menuConta">
+          {% if session.get('usuario') %}
+            <a href="{{ url_for('perfil') }}">Meu Perfil</a>
+            <a href="{{ url_for('logout') }}">Sair</a>
+          {% else %}
+            <a href="{{ url_for('login') }}">Entrar</a>
+            <a href="{{ url_for('cadastro') }}">Cadastrar</a>
+          {% endif %}
+        </div>
+      </div>
+      <a href="/carrinho">
+        <img src="{{ url_for('static', filename='cart-icon.png') }}" alt="Carrinho">
+      </a>
+    </div>
+  </header>
+
+  <div class="container-produto">
+    <div class="imagem-produto">
+      <img src="{{ url_for('static', filename=produto[6]) }}" alt="{{ produto[1] }}">
+    </div>
+    <div class="detalhes-produto">
+      <div>
+        <h2>{{ produto[1] }}</h2>
+        <p>{{ produto[2] }}</p>
+        <p><strong>Valor:</strong> R$ {{ "%.2f"|format(produto[3]) }}</p>
+        <div>
+          <strong>Tamanho:</strong>
+          <div class="tamanhos">
+            {% if produto[7] %}
+              {% for tamanho in produto[7].split() %}
+                <button type="button" onclick="selecionarTamanho(this)">{{ tamanho }}</button>
+              {% endfor %}
+            {% else %}
+              <span>Sem tamanhos disponíveis</span>
+            {% endif %}
+          </div>
+        </div>
+        <div class="quantidade">
+          <label for="qtd">Quantidade:</label>
+          <button onclick="alterarQuantidade(-1)">-</button>
+          <input type="number" id="qtd" value="1" min="1">
+          <button onclick="alterarQuantidade(1)">+</button>
+        </div>
+      </div>
+      <div class="botoes">
+        <!-- Adicionar no Carrinho -->
+        <form action="{{ url_for('adicionar_carrinho', produto_id=produto[0]) }}" method="post" onsubmit="return validarSelecao()">
+          <input type="hidden" name="tamanho" id="tamanhoSelecionadoInput">
+          <input type="hidden" name="quantidade" id="quantidadeSelecionadaInput">
+          <button type="submit" class="btn-carrinho">Adicionar no Carrinho</button>
+        </form>
+
+        <!-- Comprar Agora -->
+        <form action="{{ url_for('checkout') }}" method="post" onsubmit="return validarSelecao()">
+          <input type="hidden" name="produto_id" value="{{ produto[0] }}">
+          <input type="hidden" name="quantidade" id="quantidadeSelecionadaInput2">
+          <input type="hidden" name="tamanho" id="tamanhoSelecionadoInput2">
+          <button type="submit" class="btn-comprar">Comprar Agora</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
