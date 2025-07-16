@@ -5,6 +5,43 @@
   <title>ShoesMix</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+  <style>
+    .grid-produtos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .produto {
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .produto img {
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .produto p {
+      margin: 8px 0;
+    }
+    .btn-editar, .btn-comprar {
+      display: inline-block;
+      background: #000;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      margin-top: 8px;
+    }
+  </style>
 </head>
 <body>
   <header class="cabecalho">
@@ -12,18 +49,36 @@
       <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
     </div>
     <div class="barra-pesquisa">
-      <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa">
-      <input type="text" placeholder="O que deseja procurar?">
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex; align-items:center; gap:4px;">
+        <input type="text" name="q" placeholder="O que deseja procurar?" style="flex:1;">
+        <button type="submit" style="border:none; background:none; cursor:pointer;">
+          <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa" style="height:16px;">
+        </button>
+      </form>
     </div>
     <div class="icones-direita">
       <div class="dropdown">
         <div class="dropdown-toggle" onclick="toggleMenu(event)">
           <img src="{{ url_for('static', filename='user-icon.png') }}" alt="Usuário">
-          <span class="minha-conta">Minha conta</span>
+          {% if modo == 'logado' %}
+            <span class="minha-conta">Minha Conta</span>
+          {% elif modo == 'admin' %}
+            <span class="minha-conta">Admin</span>
+          {% else %}
+            <span class="minha-conta">Entrar</span>
+          {% endif %}
         </div>
         <div class="dropdown-content" id="menuConta">
-          <a href="/login" class="botao-conta">ENTRAR</a>
-          <a href="/cadastro" class="botao-conta">CADASTRAR</a>
+          {% if modo == 'logado' %}
+            <a href="{{ url_for('perfil') }}">Meu Perfil</a>
+            <a href="{{ url_for('logout') }}">Sair</a>
+          {% elif modo == 'admin' %}
+            <a href="{{ url_for('admin') }}">Painel Admin</a>
+            <a href="{{ url_for('logout') }}">Sair</a>
+          {% else %}
+            <a href="{{ url_for('login') }}">Entrar</a>
+            <a href="{{ url_for('cadastro') }}">Cadastrar</a>
+          {% endif %}
         </div>
       </div>
       <a href="/carrinho">
@@ -32,16 +87,37 @@
     </div>
   </header>
 
-  <!-- Barra de categorias abaixo do cabeçalho -->
   <nav class="barra-categorias">
-    <ul>
-      <li><a href="#">NOVIDADES</a></li>
-      <li><a href="#">FEMININO</a></li>
-      <li><a href="#">MASCULINO</a></li>
-      <li><a href="#">PROMOÇÕES</a></li>
-      <li><a href="#">CATEGORIA</a></li>
-    </ul>
-  </nav>
+  <ul>
+    <li><a href="/">NOVIDADES</a></li>
+    <li><a href="{{ url_for('filtro', categoria='feminino') }}">FEMININO</a></li>
+    <li><a href="{{ url_for('filtro', categoria='masculino') }}">MASCULINO</a></li>
+    <li><a href="{{ url_for('filtro', categoria='promocao') }}">PROMOÇÕES</a></li>
+    <li><a href="/">TODOS</a></li>
+  </ul>
+</nav>
 
+  <div class="grid-produtos">
+    {% for produto in produtos %}
+      <div class="produto">
+        <a href="{{ url_for('produto', id=produto[0]) }}">
+          {% if produto[6] %}
+            <img src="{{ url_for('static', filename=produto[6]) }}" alt="{{ produto[1] }}">
+          {% else %}
+            <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="Sem imagem">
+          {% endif %}
+        </a>
+        <p class="nome-produto">{{ produto[1] }}</p>
+        <p class="preco-produto">R$ {{ "%.2f"|format(produto[3]) }}</p>
+
+        {% if modo == 'admin' %}
+          <button class="btn-editar">EDITAR</button>
+        {% else %}
+          <a href="{{ url_for('produto', id=produto[0]) }}" class="btn-comprar">COMPRAR</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  
 </body>
 </html>
