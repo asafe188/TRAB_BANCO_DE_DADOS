@@ -48,3 +48,13 @@ CREATE TABLE pedidos (
   forma_pagamento VARCHAR(20),
   status VARCHAR(20)
 );
+CREATE TABLE solicitacoes_devolucao (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  pedido_id INT NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  data_solicitacao DATE NOT NULL,
+  motivo VARCHAR(255),
+  descricao TEXT,
+  acao VARCHAR(50),
+  foto VARCHAR(255)
+);
