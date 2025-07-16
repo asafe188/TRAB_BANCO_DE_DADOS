@@ -1,4 +1,4 @@
-<script>
+  <script>
     function proximaEtapa() {
       document.getElementById("etapa1").style.display = "none";
       document.getElementById("etapa2").style.display = "block";
