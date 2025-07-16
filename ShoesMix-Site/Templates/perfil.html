@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meu Perfil - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Aleo', serif;
+      background: #f5f5f5;
+    }
+    .perfil-container {
+      max-width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 40px; /* Espaço entre os cards */
+      position: relative;
+    }
+    .btn-voltar {
+      position: absolute;
+      left: -80px; /* Bem à esquerda, alinhado com a logo */
+      top: 0;
+      background: transparent;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-voltar img {
+      width: 45px;
+      height: 45px;
+    }
+    .perfil-titulo {
+      text-align: center;
+      font-size: 22px;
+      margin: 25px 0;
+      font-weight: bold;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      padding: 20px;
+      flex: 1;
+      min-width: 400px;
+      min-height: 350px; /* Mesma altura dos dois */
+      position: relative;
+    }
+    .card h2 {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .dados-pessoais p,
+    .endereco-info p {
+      margin: 6px 0;
+      line-height: 1.4;
+    }
+    .sub-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      padding: 10px;
+      width: 70%; /* Menor largura */
+      margin: 0 auto 40px auto; /* Centralizado */
+    }
+    .botao-editar {
+      display: inline-block;
+      padding: 8px 20px;
+      background: #333;
+      color: #fff;
+      font-size: 13px;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .botao-editar:hover {
+      background: #000;
+    }
+    .card .botao-editar:last-child {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex; align-items:center; gap:4px;">
+        <input type="text" name="q" placeholder="O que deseja procurar?" style="flex:1;">
+        <button type="submit" style="border:none; background:none; cursor:pointer;">
+          <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa" style="height:16px;">
+        </button>
+      </form>
+    </div>
+    <div class="icones-direita">
+      <div class="dropdown">
+        <div class="dropdown-toggle" onclick="toggleMenu(event)">
+          <img src="{{ url_for('static', filename='user-icon.png') }}" alt="Usuário">
+          <span class="minha-conta">Bem-vindo</span>
+        </div>
+        <div class="dropdown-content" id="menuConta">
+          <a href="{{ url_for('perfil') }}" class="botao-conta">Meu Perfil</a>
+          <a href="#" class="botao-conta">Meus Pedidos</a>
+          <a href="{{ url_for('logout') }}" class="botao-conta">Sair</a>
+        </div>
+      </div>
+      <a href="/carrinho">
+        <img src="{{ url_for('static', filename='cart-icon.png') }}" alt="Carrinho">
+      </a>
+    </div>
+  </header>
+
+  <nav class="barra-categorias">
+    <ul>
+      <li><a href="#">NOVIDADES</a></li>
+      <li><a href="#">FEMININO</a></li>
+      <li><a href="#">MASCULINO</a></li>
+      <li><a href="#">PROMOÇÕES</a></li>
+      <li><a href="#">CATEGORIA</a></li>
+    </ul>
+  </nav>
+
+  <h1 class="perfil-titulo">Meu Perfil</h1>
+
+  <div class="perfil-container">
+    <button class="btn-voltar" onclick="window.location.href='{{ url_for('usuario') }}'">
+      <img src="{{ url_for('static', filename='icone-voltar.png') }}" alt="Voltar">
+    </button>
+
+    <div class="card dados-pessoais">
+      <h2>Dados Pessoais</h2>
+      <p><strong>Nome Completo</strong><br>{{ usuario.nome }}</p>
+      <p><strong>E-mail</strong><br>{{ usuario.email }}</p>
+      <p><strong>CPF</strong><br>{{ usuario.cpf }}</p>
+      <p><strong>Telefone</strong><br>{{ usuario.telefone }}</p>
+      <button class="botao-editar" onclick="window.location.href='{{ url_for('editar_perfil') }}'">EDITAR</button>
+    </div>
+
+    <div class="card">
+      <h2>Endereço</h2>
+      <div class="sub-card endereco-info">
+        <p><strong>Bairro:</strong> {{ usuario.endereco.bairro }}</p>
+        <p><strong>Rua:</strong> {{ usuario.endereco.rua }}</p>
+        <p><strong>Nº:</strong> {{ usuario.endereco.numero }}</p>
+        <p>{{ usuario.endereco.cidade }}</p>
+      </div>
+      <button class="botao-editar" onclick="window.location.href='{{ url_for('editar_perfil') }}'">EDITAR</button>
+    </div>
+  </div>
+
+</body>
+</html>
