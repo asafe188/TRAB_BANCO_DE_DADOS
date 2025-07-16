@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f5f5; margin:0; }
+    .container { max-width:500px; margin:30px auto; background:white; border-radius:8px; box-shadow:0 0 5px rgba(0,0,0,0.1); padding:30px; text-align:center; }
+    .passo { margin-bottom:20px; }
+    .passo span {
+      display:inline-block;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#ccc;
+      margin:0 3px;
+    }
+    .passo span.ativo { background:#000; }
+    .qr-code { width:180px; margin:20px auto; }
+    .linha-ou { display:flex; align-items:center; gap:10px; margin:20px 0; }
+    .linha-ou hr { flex:1; border:none; border-top:1px solid #ddd; }
+    .pix-codigo {
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      background:#f0f0f0;
+      padding:8px;
+      border-radius:4px;
+      font-size:13px;
+    }
+    .pix-codigo button {
+      background:#555;
+      color:white;
+      border:none;
+      padding:6px 10px;
+      border-radius:4px;
+      cursor:pointer;
+      font-size:12px;
+    }
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:6px; padding-right:15px;">
+      <img src="{{ url_for('static', filename='checkout-seguro.png') }}" alt="Checkout" style="height:22px;">
+      <span style="color:green; font-weight:bold;">Checkout Seguro</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Pagamento</h2>
+    <div class="passo">
+      <span class="ativo"></span>
+      <span></span>
+    </div>
+    <p><strong>Pagamento via PIX</strong></p>
+    <img src="{{ url_for('static', filename='qr-pix.png') }}" alt="QR Code Pix" class="qr-code">
+    <div class="linha-ou"><hr>ou<hr></div>
+    <form method="POST" action="{{ url_for('finalizar_compra_carrinho') }}">
+  <input type="hidden" name="itens" value="{{ request.args.get('itens') }}">
+  <div class="pix-codigo">
+    <span id="codigoPix">000201010211...SEU_CODIGO_PIX_AQUI...</span>
+    <button type="submit">FINALIZAR COMPRA</button>
+  </div>
+</form>
+  </div>
+</body>
+</html>
