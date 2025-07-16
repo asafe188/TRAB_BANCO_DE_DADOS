@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verificação de Pedidos - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; margin:0; }
+    .cabecalho { display:flex; align-items:center; justify-content:space-between; background:white; padding:10px 30px; box-shadow:0 0 5px rgba(0,0,0,0.1);}
+    .titulo { text-align:center; margin:30px 0 10px; font-size:26px; font-weight:bold; }
+    .subtitulo { text-align:center; margin-bottom:30px; font-size:18px; color:#555; }
+    .grid-pedidos { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:20px; max-width:1000px; margin:0 auto; padding:0 20px 40px; }
+    .pedido { background:#fff; padding:15px; border-radius:8px; box-shadow:0 0 5px rgba(0,0,0,0.1);}
+    .pedido p { margin:6px 0; }
+    .pedido a { display:block; text-align:center; background:#555; color:white; padding:8px; border-radius:20px; text-decoration:none; font-weight:bold; margin-top:10px;}
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex; align-items:center; gap:4px;">
+        <input type="text" name="q" placeholder="O que deseja procurar?" style="flex:1;">
+        <button type="submit" style="border:none; background:none; cursor:pointer;">
+          <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa" style="height:16px;">
+        </button>
+      </form>
+    </div>
+    <div class="icones-direita">
+      <a href="{{ url_for('admin') }}">Voltar</a>
+    </div>
+  </header>
+
+  <h1 class="titulo">Verificação de Pedidos</h1>
+  <h2 class="subtitulo">Total: {{ pedidos|length }} PEDIDOS</h2>
+
+  {% if pedidos %}
+  <div class="grid-pedidos">
+    {% for pedido in pedidos %}
+      <div class="pedido">
+        <p><strong>Cliente:</strong> {{ pedido[1] }}</p>
+        <p><strong>Produto:</strong> {{ pedido[2] }} (Tam. {{ pedido[3] }})</p>
+        <p><strong>Data do Pedido:</strong> {{ pedido[4].strftime("%d/%m/%Y") }}</p>
+        <a href="{{ url_for('detalhe_pedido', pedido_id=pedido[0]) }}">VER DETALHE</a>
+      </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p style="text-align:center; color:#777;">Nenhum pedido cadastrado no momento.</p>
+  {% endif %}
+</body>
+</html>
