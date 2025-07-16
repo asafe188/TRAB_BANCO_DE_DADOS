@@ -5,6 +5,43 @@
   <title>Usuário Logado - ShoesMix</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+  <style>
+    .grid-produtos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .produto {
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .produto img {
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .produto p {
+      margin: 8px 0;
+    }
+    .btn-comprar {
+      display: inline-block;
+      background: #000;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      margin-top: 8px;
+    }
+  </style>
 </head>
 <body>
   <header class="cabecalho">
@@ -12,9 +49,13 @@
       <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
     </div>
     <div class="barra-pesquisa">
-      <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa">
-      <input type="text" placeholder="O que deseja procurar?">
-    </div>
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex; align-items:center; gap:4px;">
+        <input type="text" name="q" placeholder="O que deseja procurar?" style="flex:1;">
+        <button type="submit" style="border:none; background:none; cursor:pointer;">
+          <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa" style="height:16px;">
+       </button>
+     </form>
+   </div>
     <div class="icones-direita">
       <div class="dropdown">
         <div class="dropdown-toggle" onclick="toggleMenu(event)">
@@ -22,8 +63,8 @@
           <span class="minha-conta">Bem-vindo</span>
         </div>
         <div class="dropdown-content" id="menuConta">
-          <a href="#" class="botao-conta">Meu Perfil</a>
-          <a href="#" class="botao-conta">Meus Pedidos</a>
+          <a href="{{ url_for('perfil') }}" class="botao-conta">Meu Perfil</a>
+          <a href="{{ url_for('meus_pedidos') }}" class="botao-conta">Meus Pedidos</a>
           <a href="{{ url_for('logout') }}" class="botao-conta">Sair</a>
         </div>
       </div>
@@ -34,18 +75,31 @@
   </header>
 
   <nav class="barra-categorias">
-    <ul>
-      <li><a href="#">NOVIDADES</a></li>
-      <li><a href="#">FEMININO</a></li>
-      <li><a href="#">MASCULINO</a></li>
-      <li><a href="#">PROMOÇÕES</a></li>
-      <li><a href="#">CATEGORIA</a></li>
-    </ul>
-  </nav>
+  <ul>
+    <li><a href="{{ url_for('usuario') }}">NOVIDADES</a></li>
+    <li><a href="{{ url_for('filtro_usuario', categoria='feminino') }}">FEMININO</a></li>
+    <li><a href="{{ url_for('filtro_usuario', categoria='masculino') }}">MASCULINO</a></li>
+    <li><a href="{{ url_for('filtro_usuario', categoria='promocao') }}">PROMOÇÕES</a></li>
+    <li><a href="{{ url_for('usuario') }}">TODOS</a></li>
+  </ul>
+</nav>
 
-  <main class="conteudo-usuario">
-    <!-- Removido o texto central de boas-vindas -->
-  </main>
-  
+  <div class="grid-produtos">
+    {% for produto in produtos %}
+      <div class="produto">
+        <a href="{{ url_for('produto', id=produto[0]) }}">
+          {% if produto[6] %}
+            <img src="{{ url_for('static', filename=produto[6]) }}" alt="{{ produto[1] }}">
+          {% else %}
+            <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="Sem imagem">
+          {% endif %}
+        </a>
+        <p class="nome-produto">{{ produto[1] }}</p>
+        <p class="preco-produto">R$ {{ "%.2f"|format(produto[3]) }}</p>
+        <a href="{{ url_for('produto', id=produto[0]) }}" class="btn-comprar">COMPRAR</a>
+      </div>
+    {% endfor %}
+  </div>
+
 </body>
 </html>
