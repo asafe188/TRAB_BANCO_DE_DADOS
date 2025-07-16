@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meu Carrinho - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <style>
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: flex;
+      gap: 40px;
+    }
+    .lista-itens {
+      flex: 2;
+    }
+    .item-carrinho {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      justify-content: space-between;
+    }
+    .item-info {
+      flex: 1;
+      margin-left: 10px;
+    }
+    .item-carrinho img {
+      width: 80px;
+      border-radius: 4px;
+    }
+    .resumo {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .btn-comprar {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn-remover {
+      background: #ccc;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .select-all {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex; align-items:center; gap:4px;">
+        <input type="text" name="q" placeholder="O que deseja procurar?" style="flex:1;">
+        <button type="submit" style="border:none; background:none; cursor:pointer;">
+          <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa" style="height:16px;">
+        </button>
+      </form>
+    </div>
+    <div class="icones-direita">
+      <div class="dropdown">
+        <div class="dropdown-toggle" onclick="toggleMenu(event)">
+          <img src="{{ url_for('static', filename='user-icon.png') }}" alt="Usuário">
+          <span class="minha-conta">Conta</span>
+        </div>
+        <div class="dropdown-content" id="menuConta">
+          {% if session.get('usuario') %}
+            <a href="{{ url_for('perfil') }}">Meu Perfil</a>
+            <a href="{{ url_for('logout') }}">Sair</a>
+          {% else %}
+            <a href="{{ url_for('login') }}">Entrar</a>
+            <a href="{{ url_for('cadastro') }}">Cadastrar</a>
+          {% endif %}
+        </div>
+      </div>
+      <a href="/carrinho">
+        <img src="{{ url_for('static', filename='cart-icon.png') }}" alt="Carrinho">
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="lista-itens">
+      <div class="select-all">
+        <input type="checkbox" id="checkAll" onclick="marcarTodos()">
+        <label for="checkAll">Selecionar Todos</label>
+      </div>
+      {% for item in itens %}
+      <div class="item-carrinho">
+        <input type="checkbox"
+               class="checkbox-item"
+               value="{{ item[0] }}"
+               data-preco="{{ item[3]*item[5] }}"
+               data-nome="{{ item[1] }}"
+               onchange="atualizarTotal()">
+        <img src="{{ url_for('static', filename=item[4]) }}" alt="{{ item[1] }}">
+        <div class="item-info">
+          <strong>{{ item[1] }}</strong><br>
+          <small>{{ item[2] }}</small><br>
+          <p><strong>R$ {{ "%.2f"|format(item[3]) }}</strong></p>
+          <p>Qtd: {{ item[5] }} | Tamanho: {{ item[6] }}</p>
+        </div>
+        <form action="{{ url_for('remover_item', item_id=item[0]) }}" method="post">
+          <button type="submit" class="btn-remover">Remover</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="resumo">
+      <h3>Resumo do Pedido</h3>
+      <div id="listaItensResumo" style="margin-bottom:10px; font-size:14px;"></div>
+      <p><strong>Total:</strong> R$ <span id="total">0.00</span></p>
+      <form id="form-comprar" method="POST" action="{{ url_for('checkout_carrinho') }}">
+        <input type="hidden" name="itens" id="itensSelecionadosInput">
+        <button type="submit" class="btn-comprar">COMPRAR AGORA</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
