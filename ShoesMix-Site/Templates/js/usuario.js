@@ -1,4 +1,4 @@
-<script>
+  <script>
     function toggleMenu(event) {
       event.stopPropagation();
       const menu = document.getElementById("menuConta");
