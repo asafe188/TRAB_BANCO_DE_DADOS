@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resultados da Busca - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; margin:0; }
+    .cabecalho { display:flex; align-items:center; justify-content:space-between; background:white; padding:10px 30px; box-shadow:0 0 5px rgba(0,0,0,0.1);}
+    .grid-produtos {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap:20px;
+      max-width:1000px;
+      margin:30px auto;
+      padding:0 20px;
+    }
+    .produto {
+      background:white;
+      padding:10px;
+      border-radius:8px;
+      box-shadow:0 0 5px rgba(0,0,0,0.1);
+      text-align:center;
+    }
+    .produto img { width:100%; border-radius:4px; }
+    .produto p { margin:6px 0; }
+    .produto a { display:inline-block; background:#000; color:white; padding:6px 12px; border-radius:20px; text-decoration:none; font-weight:bold; margin-top:8px;}
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+      </a>
+    </div>
+    <div class="barra-pesquisa">
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex;">
+        <input type="text" name="q" placeholder="Buscar produtos..." value="{{ termo }}" style="flex:1;padding:6px;">
+        <button type="submit" style="padding:6px 12px;">Buscar</button>
+      </form>
+    </div>
+  </header>
+
+  <h2 style="text-align:center; margin:20px;">Resultados para: "{{ termo }}"</h2>
+
+  {% if produtos %}
+  <div class="grid-produtos">
+    {% for produto in produtos %}
+      <div class="produto">
+        <a href="{{ url_for('produto', id=produto[0]) }}">
+          {% if produto[6] %}
+            <img src="{{ url_for('static', filename=produto[6]) }}" alt="{{ produto[1] }}">
+          {% else %}
+            <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="Sem imagem">
+          {% endif %}
+        </a>
+        <p><strong>{{ produto[1] }}</strong></p>
+        <p>R$ {{ "%.2f"|format(produto[3]) }}</p>
+        <a href="{{ url_for('produto', id=produto[0]) }}">Ver Produto</a>
+      </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p style="text-align:center; color:#777;">Nenhum produto encontrado.</p>
+  {% endif %}
+</body>
+</html>
