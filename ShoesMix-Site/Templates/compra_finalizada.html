@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento Concluído - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f5f5; margin:0; }
+    .container { max-width:500px; margin:30px auto; background:white; border-radius:8px; box-shadow:0 0 5px rgba(0,0,0,0.1); padding:30px; text-align:center; }
+    .passo { margin-bottom:20px; }
+    .passo span {
+      display:inline-block;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#ccc;
+      margin:0 3px;
+    }
+    .passo span.ativo { background:#000; }
+    .icone-ok {
+      width:80px;
+      margin:20px auto;
+    }
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div style="margin-left:auto; display:flex; align-items:center; gap:6px; padding-right:15px;">
+      <img src="{{ url_for('static', filename='checkout-seguro.png') }}" alt="Checkout" style="height:22px;">
+      <span style="color:green; font-weight:bold;">Checkout Seguro</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Compra Finalizada</h2>
+    <div class="passo">
+      <span></span>
+      <span class="ativo"></span>
+    </div>
+    <p>Pagamento realizado com sucesso</p>
+    <img src="{{ url_for('static', filename='icone-ok.png') }}" alt="Sucesso" class="icone-ok">
+    <p>Transação aprovada via PIX</p>
+  </div>
+</body>
+</html>
