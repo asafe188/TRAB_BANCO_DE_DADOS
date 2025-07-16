@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meus Pedidos - ShoesMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Aleo', serif;
+      background: #f5f5f5;
+    }
+    .container-pedidos {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-height: 420px; /* altura maior */
+      position: relative;
+    }
+    .abas {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 10px;
+    }
+    .aba {
+      text-align: center;
+      cursor: pointer;
+      padding: 10px;
+      position: relative;
+    }
+    .aba img {
+      height: 45px;
+      margin-bottom: 8px;
+    }
+    .aba-ativa {
+      font-weight: bold;
+    }
+    .aba-ativa::after {
+      content: "";
+      display: block;
+      margin: 6px auto 0 auto;
+      width: 40px;
+      height: 3px;
+      background: #000;
+      border-radius: 2px;
+    }
+    .linha-divisoria {
+      width: 90%;
+      height: 1px;
+      background: #ddd;
+      margin: 0 auto 20px auto;
+    }
+    .sem-pedidos {
+      text-align: center;
+      color: #777;
+      margin-top: 40px;
+    }
+    .sem-pedidos img {
+      height: 140px;
+      opacity: 0.3;
+    }
+    .btn-voltar {
+      position: absolute;
+      left: -70px; /* Fora do card, alinhado com a logo */
+      top: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-voltar img {
+      width: 45px;
+    }
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo ShoesMix">
+    </div>
+    <div class="barra-pesquisa">
+      <form action="{{ url_for('buscar') }}" method="get" style="display:flex; align-items:center; gap:4px;">
+        <input type="text" name="q" placeholder="O que deseja procurar?" style="flex:1;">
+        <button type="submit" style="border:none; background:none; cursor:pointer;">
+          <img src="{{ url_for('static', filename='lupa.png') }}" class="lupa" style="height:16px;">
+        </button>
+      </form>
+    </div>
+    <div class="icones-direita">
+      <div class="dropdown">
+        <div class="dropdown-toggle" onclick="toggleMenu(event)">
+          <img src="{{ url_for('static', filename='user-icon.png') }}" alt="Usuário">
+          <span class="minha-conta">Bem-vindo</span>
+        </div>
+        <div class="dropdown-content" id="menuConta">
+          <a href="{{ url_for('perfil') }}" class="botao-conta">Meu Perfil</a>
+          <a href="{{ url_for('meus_pedidos') }}" class="botao-conta">Meus Pedidos</a>
+          <a href="{{ url_for('logout') }}" class="botao-conta">Sair</a>
+        </div>
+      </div>
+      <a href="/carrinho">
+        <img src="{{ url_for('static', filename='cart-icon.png') }}" alt="Carrinho">
+      </a>
+    </div>
+  </header>
+
+  <nav class="barra-categorias">
+    <ul>
+      <li><a href="#">NOVIDADES</a></li>
+      <li><a href="#">FEMININO</a></li>
+      <li><a href="#">MASCULINO</a></li>
+      <li><a href="#">PROMOÇÕES</a></li>
+      <li><a href="#">CATEGORIA</a></li>
+    </ul>
+  </nav>
+
+  <h1 style="text-align:center; margin: 25px 0;">Meus Pedidos</h1>
+
+  <div class="container-pedidos">
+    <button class="btn-voltar" onclick="window.location.href='{{ url_for('usuario') }}'">
+      <img src="{{ url_for('static', filename='icone-voltar.png') }}" alt="Voltar">
+    </button>
+
+    <div class="abas">
+      <div class="aba {% if aba == 'devolucao' %}aba-ativa{% endif %}" onclick="mudarAba('devolucao')">
+        <img src="{{ url_for('static', filename='devolucao.png') }}" alt="Devolução">
+        <div>Devolução</div>
+      </div>
+      <div class="aba {% if aba == 'processando' %}aba-ativa{% endif %}" onclick="mudarAba('processando')">
+        <img src="{{ url_for('static', filename='processando.png') }}" alt="Processando">
+        <div>Processando</div>
+      </div>
+      <div class="aba {% if aba == 'enviado' %}aba-ativa{% endif %}" onclick="mudarAba('enviado')">
+        <img src="{{ url_for('static', filename='enviado.png') }}" alt="Enviado">
+        <div>Enviado</div>
+      </div>
+    </div>
+
+    <div class="linha-divisoria"></div>
+
+    <div class="sem-pedidos">
+      <img src="{{ url_for('static', filename='sem-pedidos.png') }}" alt="Sem pedidos">
+      <p>Está vazio aqui :-(</p>
+    </div>
+  </div>
+
+</body>
+</html>
