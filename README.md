@@ -16,15 +16,14 @@ O **ShoesMix** é um sistema desenvolvida para a disciplina de **Sistemas de Ban
 **Sistemas de Banco de Dados I**
    
 ## 🚻 Integrantes
-| Nome | Matrícula |
-|------|-----------|
-|Amanda da Silva      | 22400227          |
-|Brayner Santana Brito  | 22352611        |
-|João Asafe Batista de Souza |22252494    |
-|João Vitor Oliveira da Simões |22351498  |
-|Lais Samily Xavier da Silva   |22351499  |
-|Manoele Braga Colares da Costa |22351502 |
-
+| Nome |
+|------|
+|Amanda da Silva      |
+|Brayner Santana Brito  | 
+|João Asafe Batista de Souza |
+|João Vitor Oliveira da Simões |
+|Lais Samily Xavier da Silva   |
+|Manoele Braga Colares da Costa |
 ## 🧑🏻‍🏫 Docente
 **Edson Silva**
 
